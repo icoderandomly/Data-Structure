@@ -1,0 +1,253 @@
+Algorithmic Efficiency & Recursion Toolkit (AERT)
+
+Course: Data Structures
+Course Code: ETCCDS202
+Unit: Foundations & Algorithmic Analysis
+Name: Harsh Singh 
+Roll no:2501730400
+
+1. Introduction
+
+This assignment focuses on understanding the fundamentals of data structures and algorithm analysis. The project implements a small toolkit using Python that demonstrates recursion, algorithm efficiency, and different algorithm paradigms.
+
+The toolkit includes implementation of:
+
+Stack Abstract Data Type (ADT)
+
+Recursive Factorial
+
+Recursive Fibonacci (Naive and Memoized)
+
+Tower of Hanoi
+
+Recursive Binary Search
+
+The goal of this project is to understand how recursive algorithms work and analyze their efficiency using time and space complexity.
+
+2. Abstract Data Type (ADT)
+
+An Abstract Data Type (ADT) is a logical model that defines a data structure and the operations that can be performed on it, without describing how it is implemented internally.
+
+In this project, a Stack ADT is implemented using a Python list.
+
+The following operations are implemented:
+
+push(x) – adds an element to the top of the stack
+
+pop() – removes the top element
+
+peek() – returns the top element without removing it
+
+is_empty() – checks whether the stack is empty
+
+size() – returns the number of elements in the stack
+
+display() – prints the stack contents
+
+Why stack operations are O(1)
+
+Most stack operations take constant time O(1) because they only access the top element of the stack. They do not require traversal of the entire data structure.
+
+In this program, the stack is also used to store the moves of the Tower of Hanoi problem.
+
+3. Factorial using Recursion
+
+The factorial of a number n is defined as:
+
+n! = n × (n − 1) × (n − 2) × ... × 1
+
+The recursive definition is:
+
+Base Case:
+factorial(0) = 1
+
+Recursive Case:
+factorial(n) = n × factorial(n−1)
+
+The program also handles invalid inputs such as negative numbers.
+
+Time Complexity
+
+O(n)
+
+The function calls itself n times until it reaches the base case.
+
+Space Complexity
+
+O(n)
+
+This is due to the recursion call stack, where each recursive call is stored until the computation finishes.
+
+4. Fibonacci Sequence
+
+The Fibonacci sequence is defined as:
+
+F(0) = 0
+F(1) = 1
+
+F(n) = F(n−1) + F(n−2)
+
+Two versions of Fibonacci were implemented.
+
+4.1 Naive Recursive Fibonacci
+
+In the naive approach, the function repeatedly calls itself for the same values.
+
+Example:
+
+F(5) requires computing F(4) and F(3).
+F(4) again computes F(3) and F(2), which causes repeated calculations.
+
+A call counter is added in the program to count the number of recursive calls.
+
+Time Complexity
+
+O(2ⁿ)
+
+This is exponential because each function call generates two more recursive calls.
+
+Space Complexity
+
+O(n)
+
+This corresponds to the recursion depth.
+
+Why Naive Fibonacci is Slow
+
+The naive Fibonacci method is inefficient because it recomputes the same values multiple times, which causes the number of recursive calls to grow very rapidly.
+
+4.2 Memoized Fibonacci (Dynamic Programming)
+
+The memoized version improves efficiency by storing previously computed results in a dictionary (memo).
+
+If the result for a number already exists in the dictionary, it is reused instead of recomputing it.
+
+This technique is known as memoization and is a form of Dynamic Programming.
+
+Time Complexity
+
+O(n)
+
+Each Fibonacci value is computed only once.
+
+Space Complexity
+
+O(n)
+
+Space is used for both the memoization dictionary and the recursion stack.
+
+The call counter in the program clearly shows that the memoized version uses far fewer recursive calls compared to the naive version.
+
+5. Tower of Hanoi
+
+The Tower of Hanoi is a classic recursive problem involving three rods:
+
+Source rod
+
+Auxiliary rod
+
+Destination rod
+
+The goal is to move all disks from the source rod to the destination rod following these rules:
+
+Only one disk can be moved at a time.
+
+A larger disk cannot be placed on a smaller disk.
+
+For N disks, the total number of moves required is:
+
+Moves = 2ⁿ − 1
+
+In this program, the moves are printed and also stored in a Stack ADT.
+
+For N = 3, the moves are:
+
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+
+Time Complexity
+
+O(2ⁿ)
+
+The number of recursive calls doubles with each additional disk.
+
+Space Complexity
+
+O(n)
+
+The recursion depth corresponds to the number of disks.
+
+6. Recursive Binary Search
+
+Binary Search is an efficient searching algorithm that works on sorted arrays.
+
+The algorithm repeatedly divides the array into two halves and checks the middle element.
+
+If the middle element is:
+
+equal to the key → return index
+
+greater than key → search left half
+
+smaller than key → search right half
+
+Recurrence Relation
+
+T(n) = T(n/2) + O(1)
+
+This means the problem size is reduced by half in each recursive call.
+
+Time Complexity
+
+Best Case: O(1)
+Average Case: O(log n)
+Worst Case: O(log n)
+
+Space Complexity
+
+O(log n)
+
+This is due to recursion depth.
+
+The program also handles edge cases, such as searching in an empty list or when the key is not present.
+
+7. Algorithm Paradigms
+
+Different algorithm paradigms are demonstrated in this toolkit.
+
+Divide and Conquer
+
+Binary Search follows the Divide and Conquer approach because it divides the problem into smaller subproblems by halving the search space.
+
+Real-life example:
+Searching a name in a dictionary by opening the middle page.
+
+Dynamic Programming
+
+The memoized Fibonacci algorithm uses Dynamic Programming because it stores previously computed values to avoid repeated calculations.
+
+Real-life example:
+Saving previously solved subproblems while planning the shortest route.
+
+Recursion
+
+Tower of Hanoi demonstrates recursion by solving the same problem with smaller inputs.
+
+The algorithm uses:
+
+a base case (one disk)
+
+recursive calls for smaller subproblems
+
+8. Conclusion
+
+This project demonstrates how recursion can be used to solve different algorithmic problems and how algorithm efficiency can vary depending on the approach used.
+
+The comparison between naive Fibonacci and memoized Fibonacci clearly shows how optimization techniques like memoization can significantly improve performance.
+
+The implementation of stack operations, recursion problems, and binary search helped in understanding both data structures and algorithm analysis concepts.
