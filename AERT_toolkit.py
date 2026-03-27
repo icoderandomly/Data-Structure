@@ -159,12 +159,12 @@ def main():
 
     test_vals = [5, 10, 20, 30]
     for n in test_vals:
-        # reset counters before each test
+     
         global naive_call_count, memo_call_count
         naive_call_count = 0
         memo_call_count = 0
 
-        # clear memo dict for fair count
+    
         fib_memo.__defaults__ = ({},)
 
         r1 = fib_naive(n)
